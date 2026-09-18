@@ -3,6 +3,7 @@ import apiRouter from "./routes/api.js";
 import pagesRouter from "./routes/pages.js";
 
 const app = express();
+app.set("view engine", "ejs");
 const PORT = 3000;
 
 app.get("/", (req, res) => {
@@ -11,6 +12,10 @@ app.get("/", (req, res) => {
 
 app.get("/hello", (req, res) => {
   res.send("We are learning web programming in this course.");
+});
+
+app.get("/about", (req, res) => {
+  res.render("about", { title: "About" });
 });
 
 //app.get("/status", (req, res) => {
